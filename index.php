@@ -127,7 +127,7 @@ function init() {
 		<div id="info"><pre></pre></div>
 <?php if ($error) echo '<div id="error"><span>'.$error.'</span></div>' ?>
 		<form id="form" action="?" method="POST">
-			<textarea id="hashes" name="hashes" rows="10"><?php echo trim (@file_get_contents ($whitelist)) ?></textarea>
+			<textarea id="hashes" name="hashes" spellcheck="false"><?php echo trim (@file_get_contents ($whitelist)) ?></textarea>
 			<div id="buttons"><input id="reload" type="submit" value="Reload"/></div>
 		</form>
 	</body>
