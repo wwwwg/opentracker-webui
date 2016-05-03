@@ -1,6 +1,6 @@
-# Opentracker WebUI
+# OpenTracker WebUI
 
-It’s a minimalist responsive web interface for [Opentracker](https://erdgeist.org/arts/software/opentracker/) BitTorrent tracker that you can put on your [Tomato](http://tomato.groov.pl/) router (provided it’s got PHP installed) and use from anywhere with any device.
+It’s a minimalist responsive web interface for [OpenTracker](https://erdgeist.org/arts/software/opentracker/) BitTorrent tracker that you can put on your [Tomato](http://tomato.groov.pl/) router (provided it’s got PHP installed) and use from anywhere with any device.
 
 ## NGINX configuration
 
