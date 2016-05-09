@@ -2,6 +2,8 @@
 
 It’s a minimalist responsive web interface for [OpenTracker](https://erdgeist.org/arts/software/opentracker/) BitTorrent tracker that you can put on your [Tomato](http://tomato.groov.pl/) router (provided it’s got PHP installed) and use from anywhere with any device.
 
+[srcpkg-rtn16](https://github.com/garnetius/srcpkg-rtn16) repository for an example of how to build **OpenTracker** for ASUS RT-N16 router.
+
 ## NGINX configuration
 
 Because of restrictive cross-origin request JavaScript policy you need to configure your web server properly in order for real-time statistics display to work.
