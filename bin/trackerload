@@ -1,0 +1,11 @@
+#!/bin/sh
+
+PID=`pidof opentracker`
+
+if [ -z "$PID" ]; then
+  echo "OpenTracker is not running"
+  exit 1
+fi
+
+kill -SIGHUP $PID
+echo "Reloaded OpenTracker"

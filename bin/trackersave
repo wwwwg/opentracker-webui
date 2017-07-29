@@ -1,0 +1,8 @@
+#!/bin/sh
+
+HASHES=/etc/opentracker/whitelist
+
+if [ -f /tmp/opentracker/whitelist.new ]; then
+  cp /tmp/opentracker/whitelist $HASHES
+  rm /tmp/opentracker/whitelist.new
+fi
