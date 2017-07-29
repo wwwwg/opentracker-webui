@@ -1,17 +1,19 @@
 <?php
 
 /*
- * OpenTracker PHP web interface.
+ * Opentracker PHP web interface.
  *
  * Copyright Kristian Garnét (https://github.com/garnetius/).
  *
  * License: BSD.
  */
 
-// Path to the shell script which will send SIGHUP to main opentracker process.
+// Path to the shell script which will send SIGHUP
+// to the main opentracker process.
 $reloader = '/opt/bin/trackerload';
 
-// Path to the file with allowed (or blocked, depending on how opentracker was compiled) torrent hashes.
+// Path to the file with allowed (or blocked, depending on how
+// opentracker was compiled) torrent hashes.
 $whitelist = '/tmp/opentracker/whitelist';
 
 // Location from where opentracker stats can be fetched.
@@ -45,32 +47,32 @@ if (array_key_exists ('hashes', $_POST))
 		else
 		{
 			$error = "Invalid torrent hash &ldquo;".
-				$hash."&rdquo;.<br/>Each torrent hash must be on it&rsquo;s own separate line".
+				$hash."&rdquo;.<br/>Each torrent hash must be on its own separate line".
 				" and be exactly 40 hexadecimal characers in length.";
 			break;
 		}
 	}
 	// Empty file with just one new line character at the end is accepted
-	// by OpenTracker just fine. See below
+	// by Opentracker just fine. See below.
 	//else $hashes_out[] = "0000000000000000000000000000000000000000";
 
 	if ($error === "")
 	{
 		$out = trim (implode ("\n", $hashes_out))."\n"; // The single trailing new line at the end of file
-		                                                // is necessary, or OpenTracker will crash
+		                                                // is necessary, or Opentracker will crash.
 
 		@file_put_contents ($whitelist, $out);
 
-		// Alerts external script that the hash list has been updated
+		// Alerts external script that the hash list has been updated.
 		@touch ($whitelist.'.new');
 
 		$info = shell_exec ($reloader);
 
 		// Use the cron job if it doesn't work on Tomato for whatever reason.
-		// Make sure permissions and ownership are alright
+		// Make sure permissions and ownership are alright.
 		//@system ($reloader);
 
-		// This is basically what reloader script does technically
+		// This is basically what reloader script does technically.
 		/*$processes;
 		exec ('ps', $processes);
 
@@ -113,7 +115,8 @@ function stats()
 {
 	document.getElementById ("info").firstChild.innerHTML = "Loading...";
 
-	var xhr = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject ("Microsoft.XMLHTTP");
+	var xhr = (window.XMLHttpRequest) ? new XMLHttpRequest()
+	: new ActiveXObject ("Microsoft.XMLHTTP");
 
 	if (xhr) {
 		xhr.open ("GET", <?php echo '"'.$webpath.'"'; ?>);
@@ -125,7 +128,7 @@ function stats()
 					document.getElementById ("info").firstChild.className = "success";
 				}
 				else {
-					document.getElementById ("info").firstChild.innerHTML = "Can&rsquo;t connect to OpenTracker.";
+					document.getElementById ("info").firstChild.innerHTML = "Can&rsquo;t connect to Opentracker.";
 					document.getElementById ("info").firstChild.className = "error";
 				}
 			}
@@ -134,7 +137,7 @@ function stats()
 		xhr.send();
 	}
 	else {
-		document.getElementById ("info").firstChild.innerHTML = "Can&rsquo;t connect to OpenTracker.";
+		document.getElementById ("info").firstChild.innerHTML = "Can&rsquo;t connect to Opentracker.";
 		document.getElementById ("info").firstChild.className = "error";
 	}
 }
@@ -144,7 +147,7 @@ function init() {
 	stats();
 }
 </script>
-<title>OpenTracker</title>
+<title>Opentracker</title>
 	</head><body onload="init()">
 		<div id="logo"></div>
 		<div id="info"><pre></pre></div>
